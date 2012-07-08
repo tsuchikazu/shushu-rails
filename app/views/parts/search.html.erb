@@ -1,0 +1,40 @@
+<%= form_tag({action: "search"}, {method: "get"}) do%>
+  <%= search_field_tag "condition[query]", @condition[:query]  %>
+<% end %>
+
+<% if @youtubes || @googles%>
+    <div data-role="navbar" class="navi" data-iconpos="left">
+    <ul> 
+     <li>
+      <a href="/parts/search?condition[query]=<%=@condition[:query]%>&condition[target]=google"
+        class="<%= 'ui-btn-active' if @condition[:target] == nil || @condition[:target]=='google'%>"  
+        data-icon="star">Google </a>
+    </li> 
+       <li>
+      <a href="/parts/search?condition[query]=<%=@condition[:query]%>&condition[target]=youtube" 
+        class="<%= 'ui-btn-active' if @condition[:target]=='youtube'%>"  
+        data-icon="grid">YouTube</a>
+      </li> 
+    </ul> 
+  </div><!-- /navbar --> 
+
+  <ul id="Gallery" class="thumbnail">
+    <% @googles.each do |google| %>
+      <li>
+      <a href="<%= google[:url] %>"><img src="<%= google[:tb_url] %>" alt="Image 01" /></a>
+
+      </li>
+    <% end %>
+
+    <% @youtubes.each do |youtube| %>
+      <li>
+      <iframe class="youtube-player" type="text/html" width="90" height="90" 
+        src="http://www.youtube.com/embed/<%= youtube[:video_id] %>" frameborder="0">
+      </iframe>
+
+      <!--a href="http://www.youtube.com/watch?v=<%= youtube[:video_id] %>"><img src="http://i2.ytimg.com/vi/<%= youtube[:video_id] %>/default.jpg" alt="Image 01" /></a-->
+
+      </li>
+    <% end %>
+  </ul>
+<% end %>

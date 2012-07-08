@@ -12,3 +12,29 @@
  *= require_tree .
  *= require jquery.mobile
  */
+.navi {
+ margin:10px 0 0 0;
+}
+ul.thumbnail { 
+ list-style-type: none;
+ padding:0;
+ margin:10px 0 0 0;
+}
+ul.thumbnail li {
+ float: left;
+ margin: 0 5px 5px 0;
+}
+ul.thumbnail li img {
+ border: 0px solid #bbb;
+ width: 50px;
+ height: 50px;
+}
+ul.thumbnail li a { display: block; }
+.clearfix:after {
+ content: ".";
+ display: block;
+ height: 0;
+ line-height: 0;
+ clear: both;
+ visibility: hidden;
+}

@@ -1,5 +1,5 @@
 Shushu::Application.routes.draw do
-  get "search/get"
+  get "parts/search"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
