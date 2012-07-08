@@ -26,8 +26,8 @@ ul.thumbnail li {
 }
 ul.thumbnail li img {
  border: 0px solid #bbb;
- width: 50px;
- height: 50px;
+ width: 90px;
+ height: 90px;
 }
 ul.thumbnail li a { display: block; }
 .clearfix:after {
