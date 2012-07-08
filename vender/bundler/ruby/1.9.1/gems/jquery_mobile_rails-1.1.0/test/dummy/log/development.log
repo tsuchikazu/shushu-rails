@@ -1,0 +1,470 @@
+
+
+Started GET "/" for 127.0.0.1 at 2012-01-28 10:17:55 -0200
+  Processing by NotesController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+ActiveRecord::StatementInvalid (Could not find table 'notes'):
+  app/controllers/notes_controller.rb:5:in `index'
+
+Rendered /Users/tscolari/.rvm/gems/ruby-1.9.2-p290@jquery-mobile-rails/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+Rendered /Users/tscolari/.rvm/gems/ruby-1.9.2-p290@jquery-mobile-rails/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.9ms)
+Rendered /Users/tscolari/.rvm/gems/ruby-1.9.2-p290@jquery-mobile-rails/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (37.5ms)
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (3.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateNotes (20110914151624)
+  [1m[35m (0.7ms)[0m  CREATE TABLE "notes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110914151624')[0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("notes")
+
+
+Started GET "/" for 127.0.0.1 at 2012-01-28 10:18:11 -0200
+  Processing by NotesController#index as HTML
+  [1m[36mNote Load (0.4ms)[0m  [1mSELECT "notes".* FROM "notes" [0m
+Rendered notes/index.html.erb within layouts/application (33.9ms)
+Compiled application.css  (3ms)  (pid 2238)
+Completed 500 Internal Server Error in 88ms
+
+ActionView::Template::Error (no such file to load -- sass
+  (in /Users/tscolari/Projetos/gems/jquery-mobile-rails/vendor/assets/stylesheets/jquery.mobile.min.css.scss)):
+    3: <head>
+    4:   <title>Dummy</title>
+    5:   <meta name="viewport" content="width=device-width, initial-scale=1">
+    6:   <%= stylesheet_link_tag    "application" %>
+    7:   <%= javascript_include_tag "application" %>
+    8:   <%= csrf_meta_tags %>
+    9: </head>
+  app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb___1449618547341120855_70246763589460'
+  app/controllers/notes_controller.rb:7:in `index'
+
+Rendered /Users/tscolari/.rvm/gems/ruby-1.9.2-p290@jquery-mobile-rails/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /Users/tscolari/.rvm/gems/ruby-1.9.2-p290@jquery-mobile-rails/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+Rendered /Users/tscolari/.rvm/gems/ruby-1.9.2-p290@jquery-mobile-rails/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (4.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-01-28 10:22:01 -0200
+
+ActiveRecord::ConnectionNotEstablished (ActiveRecord::ConnectionNotEstablished):
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:374:in `retrieve_connection'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_specification.rb:168:in `retrieve_connection'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_specification.rb:142:in `connection'
+  activerecord (3.2.1) lib/active_record/query_cache.rb:67:in `rescue in call'
+  activerecord (3.2.1) lib/active_record/query_cache.rb:61:in `call'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:443:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:405:in `_run__205396868830559061__call__3676564681778977609__callbacks'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.1) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.1) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.1) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/static.rb:53:in `call'
+  railties (3.2.1) lib/rails/engine.rb:479:in `call'
+  railties (3.2.1) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.1) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/tscolari/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /Users/tscolari/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /Users/tscolari/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+
+  Rendered /Users/tscolari/.rvm/gems/ruby-1.9.2-p290@jquery-mobile-rails/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.2ms)
+  Rendered /Users/tscolari/.rvm/gems/ruby-1.9.2-p290@jquery-mobile-rails/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.8ms)
+  Rendered /Users/tscolari/.rvm/gems/ruby-1.9.2-p290@jquery-mobile-rails/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (27.5ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2012-01-28 10:22:38 -0200
+
+ActiveRecord::ConnectionNotEstablished (ActiveRecord::ConnectionNotEstablished):
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:374:in `retrieve_connection'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_specification.rb:168:in `retrieve_connection'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_specification.rb:142:in `connection'
+  activerecord (3.2.1) lib/active_record/query_cache.rb:67:in `rescue in call'
+  activerecord (3.2.1) lib/active_record/query_cache.rb:61:in `call'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:443:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:405:in `_run__205396868830559061__call__3676564681778977609__callbacks'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.1) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.1) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.1) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/static.rb:53:in `call'
+  railties (3.2.1) lib/rails/engine.rb:479:in `call'
+  railties (3.2.1) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.1) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/tscolari/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /Users/tscolari/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /Users/tscolari/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+
+  Rendered /Users/tscolari/.rvm/gems/ruby-1.9.2-p290@jquery-mobile-rails/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/tscolari/.rvm/gems/ruby-1.9.2-p290@jquery-mobile-rails/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+  Rendered /Users/tscolari/.rvm/gems/ruby-1.9.2-p290@jquery-mobile-rails/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.0ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateNotes (20110914151624)
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("notes")
+
+
+Started GET "/notes" for 127.0.0.1 at 2012-01-28 10:26:04 -0200
+Processing by NotesController#index as HTML
+  [1m[36mNote Load (0.1ms)[0m  [1mSELECT "notes".* FROM "notes" [0m
+  Rendered notes/index.html.erb within layouts/application (10.6ms)
+Compiled jquery.mobile.min.css  (1124ms)  (pid 2899)
+Compiled notes.css  (0ms)  (pid 2899)
+Compiled application.css  (1158ms)  (pid 2899)
+Compiled jquery.js  (1ms)  (pid 2899)
+Compiled jquery_ujs.js  (0ms)  (pid 2899)
+Compiled jquery.mobile.min.js  (0ms)  (pid 2899)
+Compiled notes.js  (0ms)  (pid 2899)
+Compiled application.js  (88ms)  (pid 2899)
+Completed 200 OK in 1398ms (Views: 1396.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:26:06 -0200
+Served asset /jquery.mobile.min.css - 200 OK (9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-01-28 10:26:06 -0200
+Served asset /application.css - 200 OK (6ms)
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2012-01-28 10:26:06 -0200
+Served asset /notes.css - 200 OK (3ms)
+
+
+Started GET "/assets/notes.js?body=1" for 127.0.0.1 at 2012-01-28 10:26:06 -0200
+Served asset /notes.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.mobile.min.js?body=1" for 127.0.0.1 at 2012-01-28 10:26:06 -0200
+Served asset /jquery.mobile.min.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-01-28 10:26:06 -0200
+Served asset /jquery.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-28 10:26:06 -0200
+Served asset /jquery_ujs.js - 200 OK (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-01-28 10:26:06 -0200
+Served asset /application.js - 200 OK (14ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:26:12 -0200
+Served asset /jquery.mobile.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/notes/new" for 127.0.0.1 at 2012-01-28 10:26:40 -0200
+Processing by NotesController#new as HTML
+  Rendered notes/_form.html.erb (9.9ms)
+  Rendered notes/new.html.erb within layouts/application (53.7ms)
+Completed 200 OK in 66ms (Views: 58.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/notes" for 127.0.0.1 at 2012-01-28 10:26:45 -0200
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FxHpSalQer31d1EnIY0ye/phSznGKmoVP1KsgVF6YLE=", "note"=>{"title"=>"saddsad", "body"=>"asdadas"}, "commit"=>"Create Note"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (13.9ms)[0m  [1mINSERT INTO "notes" ("body", "created_at", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "asdadas"], ["created_at", Sat, 28 Jan 2012 12:26:45 UTC +00:00], ["title", "saddsad"], ["updated_at", Sat, 28 Jan 2012 12:26:45 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Redirected to http://0.0.0.0:3000/notes/1
+Completed 302 Found in 20ms (ActiveRecord: 14.7ms)
+
+
+Started GET "/notes/1" for 127.0.0.1 at 2012-01-28 10:26:45 -0200
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mNote Load (0.2ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered notes/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/notes/1/edit" for 127.0.0.1 at 2012-01-28 10:26:49 -0200
+Processing by NotesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mNote Load (0.3ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered notes/_form.html.erb (2.6ms)
+  Rendered notes/edit.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 15ms (Views: 12.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/notes/1/edit" for 127.0.0.1 at 2012-01-28 10:27:05 -0200
+Processing by NotesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mNote Load (0.2ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered notes/_form.html.erb (3.0ms)
+  Rendered notes/edit.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-01-28 10:27:05 -0200
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2012-01-28 10:27:05 -0200
+Served asset /notes.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.mobile.min.js?body=1" for 127.0.0.1 at 2012-01-28 10:27:05 -0200
+Served asset /jquery.mobile.min.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-01-28 10:27:05 -0200
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-28 10:27:05 -0200
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:27:05 -0200
+Served asset /jquery.mobile.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/notes.js?body=1" for 127.0.0.1 at 2012-01-28 10:27:05 -0200
+Served asset /notes.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-01-28 10:27:05 -0200
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/notes/1/edit" for 127.0.0.1 at 2012-01-28 10:27:28 -0200
+Processing by NotesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mNote Load (0.1ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered notes/_form.html.erb (39.1ms)
+  Rendered notes/edit.html.erb within layouts/application (41.0ms)
+Completed 200 OK in 48ms (Views: 46.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-01-28 10:27:28 -0200
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-28 10:27:28 -0200
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-01-28 10:27:28 -0200
+Served asset /jquery.js - 200 OK (0ms)
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2012-01-28 10:27:28 -0200
+Served asset /notes.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.mobile.min.js?body=1" for 127.0.0.1 at 2012-01-28 10:27:28 -0200
+Served asset /jquery.mobile.min.js - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:27:28 -0200
+Served asset /jquery.mobile.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/notes.js?body=1" for 127.0.0.1 at 2012-01-28 10:27:28 -0200
+Served asset /notes.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-01-28 10:27:28 -0200
+Served asset /application.js - 200 OK (1ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2012-01-28 10:27:41 -0200
+Processing by NotesController#index as HTML
+  [1m[36mNote Load (0.2ms)[0m  [1mSELECT "notes".* FROM "notes" [0m
+  Rendered notes/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-01-28 10:27:50 -0200
+Processing by NotesController#index as HTML
+  [1m[35mNote Load (0.2ms)[0m  SELECT "notes".* FROM "notes" 
+  Rendered notes/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:30:57 -0200
+Served asset /jquery.mobile.min.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:31:00 -0200
+Served asset /jquery.mobile.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:32:26 -0200
+Served asset /jquery.mobile.min.css - 200 OK (5ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:33:24 -0200
+Served asset /jquery.mobile.min.css - 200 OK (6ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:33:26 -0200
+Served asset /jquery.mobile.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:33:27 -0200
+Served asset /jquery.mobile.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:36:41 -0200
+Served asset /jquery.mobile.min.css - 200 OK (4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-01-28 10:37:07 -0200
+Processing by NotesController#index as HTML
+  [1m[36mNote Load (0.2ms)[0m  [1mSELECT "notes".* FROM "notes" [0m
+  Rendered notes/index.html.erb within layouts/application (24.8ms)
+Compiled application.css  (3ms)  (pid 2958)
+Completed 200 OK in 133ms (Views: 126.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-01-28 10:37:08 -0200
+Served asset /application.css - 200 OK (17ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:37:08 -0200
+Served asset /jquery.mobile.min.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.mobile.min.js?body=1" for 127.0.0.1 at 2012-01-28 10:37:08 -0200
+Served asset /jquery.mobile.min.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-01-28 10:37:08 -0200
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-01-28 10:37:08 -0200
+Served asset /jquery.js - 304 Not Modified (30ms)
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2012-01-28 10:37:08 -0200
+Served asset /notes.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/notes.js?body=1" for 127.0.0.1 at 2012-01-28 10:37:08 -0200
+Served asset /notes.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-01-28 10:37:08 -0200
+Served asset /application.js - 304 Not Modified (11ms)
+
+
+Started GET "/notes/1" for 127.0.0.1 at 2012-01-28 10:37:09 -0200
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mNote Load (0.4ms)[0m  SELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered notes/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 9ms (Views: 6.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:39:38 -0200
+Served asset /jquery.mobile.min.css - 200 OK (6ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:39:40 -0200
+Served asset /jquery.mobile.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:39:41 -0200
+Served asset /jquery.mobile.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:39:42 -0200
+Served asset /jquery.mobile.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:39:42 -0200
+Served asset /jquery.mobile.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:39:42 -0200
+Served asset /jquery.mobile.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:39:43 -0200
+Served asset /jquery.mobile.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:39:43 -0200
+Served asset /jquery.mobile.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:39:43 -0200
+Served asset /jquery.mobile.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:39:43 -0200
+Served asset /jquery.mobile.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:39:44 -0200
+Served asset /jquery.mobile.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:39:44 -0200
+Served asset /jquery.mobile.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:39:46 -0200
+Served asset /jquery.mobile.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:39:47 -0200
+Served asset /jquery.mobile.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:39:48 -0200
+Served asset /jquery.mobile.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.mobile.min.css?body=1" for 127.0.0.1 at 2012-01-28 10:40:28 -0200
+Served asset /jquery.mobile.min.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.mobile.css?body=1" for 127.0.0.1 at 2012-01-28 10:40:33 -0200
+Compiled jquery.mobile.css  (1539ms)  (pid 2997)
+Served asset /jquery.mobile.css - 200 OK (1548ms)
+
+
+Started GET "/assets/jquery.mobile.css?body=1" for 127.0.0.1 at 2012-01-28 10:40:39 -0200
+Served asset /jquery.mobile.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.mobile.css?body=1" for 127.0.0.1 at 2012-01-28 10:40:40 -0200
+Served asset /jquery.mobile.css - 200 OK (0ms)

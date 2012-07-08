@@ -40,8 +40,6 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    google-search (1.0.2)
-      json
     googleajax (1.0.1)
       json (>= 1.0.0)
     hike (1.2.1)
@@ -115,7 +113,6 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
-  google-search
   googleajax
   jquery-rails
   jquery_mobile_rails
