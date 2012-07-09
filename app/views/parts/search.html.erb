@@ -29,7 +29,7 @@
     <% @youtubes.each do |youtube| %>
       <li>
       <iframe class="youtube-player" type="text/html" width="90" height="90" 
-        src="http://www.youtube.com/embed/<%= youtube[:video_id] %>" frameborder="0">
+        src="http://www.youtube.com/embed/<%= youtube["video_id"] %>" frameborder="0">
       </iframe>
 
       <!--a href="http://www.youtube.com/watch?v=<%= youtube[:video_id] %>"><img src="http://i2.ytimg.com/vi/<%= youtube[:video_id] %>/default.jpg" alt="Image 01" /></a-->
