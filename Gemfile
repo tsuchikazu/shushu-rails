@@ -8,8 +8,8 @@ gem 'rails', '3.2.5'
 gem 'mysql2'
 gem 'jquery_mobile_rails'
 gem 'kaminari'
-gem 'youtube_search'
-gem 'googleajax'
+#gem 'youtube_search'
+#gem 'googleajax'
 
 
 # Gems used only for assets and not required
