@@ -26,8 +26,8 @@ ul.thumbnail li {
 }
 ul.thumbnail li img {
  border: 0px solid #bbb;
- width: 90px;
- height: 90px;
+ width: 100px;
+ height: 100px;
 }
 ul.thumbnail li a { display: block; }
 .clearfix:after {
@@ -38,3 +38,4 @@ ul.thumbnail li a { display: block; }
  clear: both;
  visibility: hidden;
 }
+

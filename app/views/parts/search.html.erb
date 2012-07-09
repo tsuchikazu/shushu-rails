@@ -1,17 +1,17 @@
 <%= form_tag({action: "search"}, {method: "get"}) do%>
-  <%= search_field_tag "condition[query]", @condition[:query]  %>
+  <input type="search" name="condition[search]" id="search-basic" value="<%=@condition[:search] %>" />
 <% end %>
 
 <% if @youtubes || @googles%>
     <div data-role="navbar" class="navi" data-iconpos="left">
     <ul> 
      <li>
-      <a href="/parts/search?condition[query]=<%=@condition[:query]%>&condition[target]=google"
+      <a href="/parts/search?condition[search]=<%=@condition[:search]%>&condition[target]=google"
         class="<%= 'ui-btn-active' if @condition[:target] == nil || @condition[:target]=='google'%>"  
         data-icon="star">Google </a>
     </li> 
        <li>
-      <a href="/parts/search?condition[query]=<%=@condition[:query]%>&condition[target]=youtube" 
+      <a href="/parts/search?condition[search]=<%=@condition[:search]%>&condition[target]=youtube" 
         class="<%= 'ui-btn-active' if @condition[:target]=='youtube'%>"  
         data-icon="grid">YouTube</a>
       </li> 
@@ -28,7 +28,7 @@
 
     <% @youtubes.each do |youtube| %>
       <li>
-      <iframe class="youtube-player" type="text/html" width="90" height="90" 
+      <iframe class="youtube-player" type="text/html" width="100" height="100" 
         src="http://www.youtube.com/embed/<%= youtube["video_id"] %>" frameborder="0">
       </iframe>
 
