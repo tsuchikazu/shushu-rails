@@ -1,5 +1,6 @@
 Shushu::Application.routes.draw do
   get "parts/search"
+  root :to => 'parts#search'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
