@@ -1,0 +1,13 @@
+
+  <div id="bg">
+    <div id="title"><img src="http://tnmt.heteml.jp/shushutest/board/board1/images/title.png" alt="" /></div>
+    <% @board.board_items.each_with_index do |item,  index| %>
+      <div id="img_<%= index + 1 %>">
+          <a href="<%= item.image %>">
+            <img src="<%= item.image %>" width="280" height="280" alt="りっちゃん" />
+          </a>
+      </div>
+    <% end %>
+  </div>
+<%= link_to 'Edit', edit_board_path(@board) %> |
+<%= link_to 'Back', boards_path %>

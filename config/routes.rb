@@ -1,5 +1,13 @@
 Shushu::Application.routes.draw do
+
+  resources :templates
+
+  get "boards/callback"
+  get "boards/search_item"
+  resources :boards
+
   get "parts/search"
+
   root :to => 'parts#search'
 
   # The priority is based upon order of creation:
