@@ -7,6 +7,7 @@ Shushu::Application.routes.draw do
   resources :boards
 
   get "parts/search"
+  get "parts/dialog"
 
   root :to => 'parts#search'
 

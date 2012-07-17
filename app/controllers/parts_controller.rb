@@ -21,4 +21,8 @@ class PartsController < ApplicationController
       @googles = GoogleAjax::Search.images(@condition[:search], {start: start,  rsz: per_page})[:results]
     end
   end
+
+  def dialog 
+    render :layout => 'dialog'
+  end
 end

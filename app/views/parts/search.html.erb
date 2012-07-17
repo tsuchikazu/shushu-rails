@@ -21,7 +21,7 @@
   <ul id="Gallery" class="thumbnail">
     <% @googles.each do |google| %>
       <li>
-      <a href="/boards/callback?image=<%= google[:url] %>&url=<%= google[:tb_url] %>"><img src="<%= google[:tb_url] %>" alt="Image 01" /></a>
+      <a href="/parts/dialog?image=<%= google[:url] %>&url=<%= google[:tb_url] %>" data-rel="dialog" ><img src="<%= google[:tb_url] %>" alt="Image 01" /></a>
 
       </li>
     <% end %>
