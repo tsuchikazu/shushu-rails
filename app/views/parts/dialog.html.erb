@@ -4,7 +4,13 @@
   </div><!-- /header -->
 
   <div data-role="content" data-theme='c'>  
+    <% if params[:url].include? 'youtube' %>
+      <iframe class="youtube-player" type="text/html" width="100%"
+        src="<%= params[:url] %>" frameborder="0">
+      </iframe>
+    <% else %>
     <img src="<%= params[:image] %>" />
+    <% end %>
     <a href="/boards/callback?image=<%= params[:image] %>&url=<%= params[:url] %>" data-role="button" data-theme="b">OK</a>       
     <a href="#" data-role="button" data-rel="back" data-theme="c">Cancel</a>    
   </div><!-- /content -->

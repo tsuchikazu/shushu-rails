@@ -13,6 +13,7 @@ class PartsController < ApplicationController
     if @condition[:target] == 'youtube'
       # 1から始まり2から指定可能
       @youtubes = YoutubeSearch.search(@condition[:search], page: @page, per_page: per_page) 
+      @youtubes.map{|x| (x.symbolize_keys rescue x)}
     else
       per_page = 6
       # 0から始まりper_pageを掛ける

@@ -3,9 +3,15 @@
     <div id="title"><img src="http://tnmt.heteml.jp/shushutest/board/board1/images/title.png" alt="" /></div>
     <% @board.board_items.each_with_index do |item,  index| %>
       <div id="img_<%= index + 1 %>">
-          <a href="<%= item.image %>">
+        <% if item.url.include? 'youtube' %>
+          <iframe class="youtube-player" type="text/html" width="280" height="280"
+            src="<%= item.url %>" frameborder="0">
+          </iframe>
+        <% else %>
+          <a href="<%= item.url %>">
             <img src="<%= item.image %>" width="280" height="280" alt="りっちゃん" />
           </a>
+        <% end %>
       </div>
     <% end %>
   </div>

@@ -16,12 +16,18 @@
     <% @board.board_items.each_with_index do |item, index| %>
       <div id="img_<%= index + 1 %>">
         <% if item.image.blank? %>
-          <a href="/boards/search_item?frame=<%= index + 1 %>"><img src="/assets/upload.png" width="280" height="280" alt="りっちゃん" />
+          <a href="/boards/search_item?frame=<%= index + 1 %>"><img src="/assets/upload.png" width="280" height="280" />
           </a>
         <% else %>
-          <a href="/">
-            <img src="<%= item.image %>" width="280" height="280" alt="りっちゃん" />
-          </a>
+          <% if item.url.include? 'youtube' %>
+            <iframe class="youtube-player" type="text/html" width="280" height="280"
+              src="<%= item.url %>" frameborder="0">
+            </iframe>
+          <% else %>
+            <a href="<%= item.url %>">
+              <img src="<%= item.image %>" width="280" height="280" alt="りっちゃん" />
+            </a>
+          <% end %>
         <% end %>
       </div>
     <% end %>
